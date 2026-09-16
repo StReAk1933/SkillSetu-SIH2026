@@ -6,12 +6,12 @@ const navigation = [
   { label: 'Competency', icon: Network },
   { label: 'Learning', icon: BookOpen },
   { label: 'Verification', icon: ShieldCheck },
-  { label: 'Projects', icon: BriefcaseBusiness },
+  { label: 'Projects', icon: BriefcaseBusiness, active: true },
   { label: 'Simulation', icon: GraduationCap },
   { label: 'Impact', icon: BarChart3 },
 ]
 
-function AppShell({ children, activeTab = 'Verification', onTabChange }) {
+function AppShell({ children }) {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 lg:flex">
       <aside className="hidden w-64 shrink-0 flex-col border-r border-slate-200 bg-white lg:flex">
@@ -24,22 +24,16 @@ function AppShell({ children, activeTab = 'Verification', onTabChange }) {
         </div>
         <nav className="flex-1 space-y-1 px-3 py-6">
           <p className="px-3 pb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">Workspace</p>
-          {navigation.map(({ label, icon: Icon }) => {
-            const isActive = activeTab === label
-            return (
-              <button
-                key={label}
-                onClick={() => onTabChange && onTabChange(label)}
-                className={`group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold transition cursor-pointer ${
-                  isActive ? 'bg-emerald-50 text-emerald-700' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-                }`}
-              >
-                <Icon size={18} strokeWidth={isActive ? 2.4 : 2} />
-                <span>{label}</span>
-                {isActive && <ChevronRight size={15} className="ml-auto" />}
-              </button>
-            )
-          })}
+          {navigation.map(({ label, icon: Icon, active }) => (
+            <button
+              key={label}
+              className={`group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold transition ${active ? 'bg-emerald-50 text-emerald-700' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'}`}
+            >
+              <Icon size={18} strokeWidth={active ? 2.4 : 2} />
+              <span>{label}</span>
+              {active && <ChevronRight size={15} className="ml-auto" />}
+            </button>
+          ))}
         </nav>
         <div className="m-4 rounded-2xl bg-slate-900 p-4 text-white">
           <div className="mb-3 flex items-center justify-between">
