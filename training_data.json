@@ -1,0 +1,90 @@
+{
+    "training_programs": [
+        {
+            "training_id": "TR001",
+            "training_name": "Python Upskilling Program",
+            "skill": "Python",
+            "cost_per_employee": 120,
+            "employees": [
+                {
+                    "employee_id": "EMP001",
+                    "name": "Rahul",
+                    "before": 42,
+                    "after": 74,
+                    "verified": true
+                },
+                {
+                    "employee_id": "EMP002",
+                    "name": "Priya",
+                    "before": 55,
+                    "after": 82,
+                    "verified": true
+                },
+                {
+                    "employee_id": "EMP003",
+                    "name": "Arjun",
+                    "before": 48,
+                    "after": 70,
+                    "verified": false
+                },
+                {
+                    "employee_id": "EMP004",
+                    "name": "Sneha",
+                    "before": 38,
+                    "after": 68,
+                    "verified": true
+                },
+                {
+                    "employee_id": "EMP005",
+                    "name": "Vikram",
+                    "before": 51,
+                    "after": 79,
+                    "verified": true
+                }
+            ]
+        },
+        {
+            "training_id": "TR002",
+            "training_name": "Machine Learning Fundamentals",
+            "skill": "Machine Learning",
+            "cost_per_employee": 180,
+            "employees": [
+                {
+                    "employee_id": "EMP001",
+                    "name": "Rahul",
+                    "before": 40,
+                    "after": 72,
+                    "verified": true
+                },
+                {
+                    "employee_id": "EMP002",
+                    "name": "Priya",
+                    "before": 52,
+                    "after": 78,
+                    "verified": true
+                },
+                {
+                    "employee_id": "EMP003",
+                    "name": "Arjun",
+                    "before": 35,
+                    "after": 64,
+                    "verified": true
+                },
+                {
+                    "employee_id": "EMP004",
+                    "name": "Sneha",
+                    "before": 44,
+                    "after": 69,
+                    "verified": false
+                },
+                {
+                    "employee_id": "EMP005",
+                    "name": "Vikram",
+                    "before": 47,
+                    "after": 75,
+                    "verified": true
+                }
+            ]
+        }
+    ]
+}
