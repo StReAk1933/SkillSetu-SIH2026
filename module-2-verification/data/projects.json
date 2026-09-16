@@ -1,0 +1,30 @@
+[
+  {
+    "project_id": "PROJ001",
+    "project_name": "Government Data Analytics Dashboard",
+    "required_skills": {
+      "Python": 70,
+      "SQL": 70,
+      "Data Analytics": 60,
+      "Power BI": 60
+    }
+  },
+  {
+    "project_id": "PROJ002",
+    "project_name": "AI-Based Citizen Service Assistant",
+    "required_skills": {
+      "Python": 75,
+      "Machine Learning": 70,
+      "Generative AI": 65
+    }
+  },
+  {
+    "project_id": "PROJ003",
+    "project_name": "Cloud Data Migration",
+    "required_skills": {
+      "Python": 60,
+      "SQL": 70,
+      "Cloud": 75
+    }
+  }
+]
