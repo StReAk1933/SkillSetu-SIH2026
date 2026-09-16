@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { FiUsers, FiChevronDown, FiActivity, FiGrid, FiCpu } from 'react-icons/fi';
 import { HiSparkles, HiChip } from 'react-icons/hi';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 import employees from '../data/employees.json';
 import EmployeeCard from '../components/EmployeeCard';
@@ -20,9 +20,6 @@ function ScoreDonut({ score }) {
     { value: 100 - score },
   ];
   const color = score >= 80 ? '#34d399' : score >= 60 ? '#6366f1' : '#f59e0b';
-
-  const CustomTooltip = () => null;
-
   return (
     <div className="relative flex items-center justify-center w-40 h-40">
       <ResponsiveContainer width="100%" height="100%">
@@ -48,7 +45,6 @@ function ScoreDonut({ score }) {
             <Cell fill="url(#donutGrad)" style={{ filter: `drop-shadow(0 0 8px ${color}88)` }} />
             <Cell fill="rgba(30,30,60,0.8)" />
           </Pie>
-          <Tooltip content={<CustomTooltip />} />
         </PieChart>
       </ResponsiveContainer>
       {/* Center label */}
@@ -365,3 +361,6 @@ function ScoreLegend({ color, label }) {
     </div>
   );
 }
+
+
+
