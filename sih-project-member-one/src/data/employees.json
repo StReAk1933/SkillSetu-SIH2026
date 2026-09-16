@@ -1,0 +1,89 @@
+[
+  {
+    "id": "EMP001",
+    "name": "Rahul Sharma",
+    "department": "IT",
+    "designation": "Data Analyst",
+    "experience": "4 Years",
+    "currentRole": "Junior Data Analyst",
+    "avatar": "RS",
+    "overallScore": 66,
+    "targetRole": "Data Analyst",
+    "skills": [
+      { "name": "Python", "score": 82 },
+      { "name": "SQL", "score": 76 },
+      { "name": "Statistics", "score": 61 },
+      { "name": "Machine Learning", "score": 42 },
+      { "name": "Power BI", "score": 68 }
+    ],
+    "strengths": ["Python", "SQL"],
+    "improvements": ["Machine Learning", "Statistics"],
+    "targetSkills": [
+      { "name": "Python", "required": 70 },
+      { "name": "SQL", "required": 75 },
+      { "name": "Statistics", "required": 70 },
+      { "name": "Machine Learning", "required": 65 },
+      { "name": "Power BI", "required": 60 }
+    ],
+    "readiness": 72,
+    "summary": "Rahul demonstrates strong proficiency in Python and SQL. Machine Learning and Statistics require improvement to achieve higher readiness for the Data Analyst role."
+  },
+  {
+    "id": "EMP002",
+    "name": "Priya Singh",
+    "department": "Analytics",
+    "designation": "Business Analyst",
+    "experience": "6 Years",
+    "currentRole": "Senior Business Analyst",
+    "avatar": "PS",
+    "overallScore": 81,
+    "targetRole": "Data Science Lead",
+    "skills": [
+      { "name": "Python", "score": 78 },
+      { "name": "SQL", "score": 91 },
+      { "name": "Statistics", "score": 85 },
+      { "name": "Machine Learning", "score": 70 },
+      { "name": "Power BI", "score": 92 }
+    ],
+    "strengths": ["SQL", "Power BI", "Statistics"],
+    "improvements": ["Python", "Machine Learning"],
+    "targetSkills": [
+      { "name": "Python", "required": 85 },
+      { "name": "SQL", "required": 80 },
+      { "name": "Statistics", "required": 80 },
+      { "name": "Machine Learning", "required": 80 },
+      { "name": "Power BI", "required": 75 }
+    ],
+    "readiness": 85,
+    "summary": "Priya excels in SQL, Power BI, and Statistics, making her highly effective in data reporting. To transition into a Data Science Lead role, enhancing Python and Machine Learning skills is the key next step."
+  },
+  {
+    "id": "EMP003",
+    "name": "Arjun Kumar",
+    "department": "Engineering",
+    "designation": "ML Engineer",
+    "experience": "2 Years",
+    "currentRole": "Associate ML Engineer",
+    "avatar": "AK",
+    "overallScore": 54,
+    "targetRole": "ML Engineer",
+    "skills": [
+      { "name": "Python", "score": 71 },
+      { "name": "SQL", "score": 48 },
+      { "name": "Statistics", "score": 55 },
+      { "name": "Machine Learning", "score": 63 },
+      { "name": "Power BI", "score": 32 }
+    ],
+    "strengths": ["Python", "Machine Learning"],
+    "improvements": ["SQL", "Power BI", "Statistics"],
+    "targetSkills": [
+      { "name": "Python", "required": 80 },
+      { "name": "SQL", "required": 60 },
+      { "name": "Statistics", "required": 70 },
+      { "name": "Machine Learning", "required": 80 },
+      { "name": "Power BI", "required": 50 }
+    ],
+    "readiness": 61,
+    "summary": "Arjun shows promising skills in Python and Machine Learning. However, SQL, Statistics, and Power BI proficiency need significant development to meet the competency benchmarks required for an ML Engineer role."
+  }
+]
