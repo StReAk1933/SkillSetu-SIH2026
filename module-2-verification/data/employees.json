@@ -1,0 +1,59 @@
+[
+  {
+    "employee_id": "EMP001",
+    "name": "Rahul",
+    "role": "Data Analyst",
+    "skills": {
+      "Python": {
+        "course_completed": true,
+        "course_name": "Python Fundamentals",
+        "assessment_score": 86,
+        "practical_score": 82
+      },
+      "SQL": {
+        "course_completed": true,
+        "course_name": "SQL Fundamentals",
+        "assessment_score": 78,
+        "practical_score": 74
+      }
+    }
+  },
+  {
+    "employee_id": "EMP002",
+    "name": "Priya",
+    "role": "Data Analyst",
+    "skills": {
+      "Python": {
+        "course_completed": true,
+        "course_name": "Python Fundamentals",
+        "assessment_score": 92,
+        "practical_score": 88
+      },
+      "SQL": {
+        "course_completed": true,
+        "course_name": "SQL Fundamentals",
+        "assessment_score": 84,
+        "practical_score": 81
+      }
+    }
+  },
+  {
+    "employee_id": "EMP003",
+    "name": "Arjun",
+    "role": "Data Analyst",
+    "skills": {
+      "Python": {
+        "course_completed": true,
+        "course_name": "Python Fundamentals",
+        "assessment_score": 84,
+        "practical_score": 52
+      },
+      "SQL": {
+        "course_completed": false,
+        "course_name": "SQL Fundamentals",
+        "assessment_score": 0,
+        "practical_score": 0
+      }
+    }
+  }
+]
