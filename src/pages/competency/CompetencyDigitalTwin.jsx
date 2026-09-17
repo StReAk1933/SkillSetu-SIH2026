@@ -346,7 +346,7 @@ export default function CompetencyDigitalTwin() {
         {/* Footer */}
         <footer className="text-center py-6 border-t border-slate-800/60">
           <p className="text-xs text-slate-600">
-            SkillSetu · Competency Digital Twin · Module 1 · Smart India Hackathon 2024
+            SkillSetu · Competency Digital Twin · Module 1 · Smart India Hackathon 2026
           </p>
         </footer>
 

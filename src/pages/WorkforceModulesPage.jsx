@@ -16,9 +16,9 @@ const people = [
 
 const meta = {
   Dashboard: ['WORKFORCE INTELLIGENCE', 'SkillSetu Dashboard', 'One view of competency, learning, verification, project matching and workforce impact.'],
-  Learning: ['MODULE 2 â€¢ LEARNING INTELLIGENCE', 'AI Learning & Skill Gap', 'Turn verified competency gaps into targeted learning plans and measurable skill growth.'],
-  Simulation: ['MODULE 5 â€¢ WORKFORCE PLANNING', 'Workforce What-If Simulator', 'Explore how upskilling and deployment scenarios change workforce readiness.'],
-  Impact: ['MODULE 6 â€¢ TRAINING ANALYTICS', 'Training Impact & ROI', 'Track competency improvement, verification, training effectiveness and measurable return.'],
+  Learning: ['MODULE 2 • LEARNING INTELLIGENCE', 'AI Learning & Skill Gap', 'Turn verified competency gaps into targeted learning plans and measurable skill growth.'],
+  Simulation: ['MODULE 5 • WORKFORCE PLANNING', 'Workforce What-If Simulator', 'Explore how upskilling and deployment scenarios change workforce readiness.'],
+  Impact: ['MODULE 6 • TRAINING ANALYTICS', 'Training Impact & ROI', 'Track competency improvement, verification, training effectiveness and measurable return.'],
 }
 
 function Stat({ icon: Icon, label, value, note }) {
@@ -50,7 +50,7 @@ function LearningModule() {
         <div className="mt-5 space-y-3">{people.map((p,i)=>
           <button key={p[0]} onClick={()=>setSelected(i % programs.length)} className="flex w-full items-center gap-4 rounded-xl border border-slate-100 p-4 text-left hover:border-emerald-200 hover:bg-emerald-50/40">
             <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-slate-900 text-sm font-bold text-white">{p[0].slice(0,2)}</span>
-            <span className="min-w-0 flex-1"><span className="block font-bold">{p[0]} â€¢ {p[1]}</span><span className="text-xs text-slate-500">Gap: <b>{p[3]}</b> â€¢ Readiness {p[2]}%</span><Progress value={p[2]}/></span>
+            <span className="min-w-0 flex-1"><span className="block font-bold">{p[0]} • {p[1]}</span><span className="text-xs text-slate-500">Gap: <b>{p[3]}</b> • Readiness {p[2]}%</span><Progress value={p[2]}/></span>
             <ChevronRight size={17} className="text-slate-400"/>
           </button>
         )}</div>
@@ -61,7 +61,7 @@ function LearningModule() {
         <p className="mt-2 text-sm text-slate-300">Build {program.skill} capability, then return to SkillSetu for verification and competency-profile updates.</p>
         <div className="mt-6 grid grid-cols-2 gap-3">
           <div className="rounded-xl bg-white/10 p-3"><p className="text-xs text-slate-400">Average gain</p><p className="mt-1 text-lg font-bold">+{program.gain} pts</p></div>
-          <div className="rounded-xl bg-white/10 p-3"><p className="text-xs text-slate-400">Cost / employee</p><p className="mt-1 text-lg font-bold">â‚¹{program.cost}</p></div>
+          <div className="rounded-xl bg-white/10 p-3"><p className="text-xs text-slate-400">Cost / employee</p><p className="mt-1 text-lg font-bold">₹{program.cost}</p></div>
         </div>
         <button className="mt-6 inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-4 py-3 text-sm font-bold text-white hover:bg-emerald-600"><Play size={16}/> Enroll in learning path</button>
       </section>
@@ -99,7 +99,7 @@ function ImpactModule() {
     <div className="grid gap-4 md:grid-cols-4">
       <Stat icon={TrendingUp} label="Avg. competency gain" value="+28.5 pts" note="Across demo programs"/>
       <Stat icon={CheckCircle2} label="Verified outcomes" value="83%" note="Evidence-backed outcomes"/>
-      <Stat icon={WalletCards} label="Training investment" value="â‚¹1,500" note="Current demo cohort"/>
+      <Stat icon={WalletCards} label="Training investment" value="₹1,500" note="Current demo cohort"/>
       <Stat icon={ArrowUpRight} label="Impact index" value="78 / 100" note="Weighted outcome signal"/>
     </div>
     <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -138,7 +138,7 @@ export default function WorkforceModulesPage({ type = 'Dashboard' }) {
           <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">{title}</h1>
           <p className="mt-3 text-base leading-7 text-slate-500">{description}</p>
         </div>
-        <div className="rounded-2xl bg-slate-900 px-5 py-4 text-white"><p className="text-[10px] font-bold uppercase tracking-widest text-emerald-300">Data layer</p><p className="mt-1 font-bold">Demo / Mock â€¢ Live UI</p></div>
+        <div className="rounded-2xl bg-slate-900 px-5 py-4 text-white"><p className="text-[10px] font-bold uppercase tracking-widest text-emerald-300">Data layer</p><p className="mt-1 font-bold">Demo / Mock • Live UI</p></div>
       </div>
     </section>
     {body}

@@ -1,0 +1,30 @@
+import { useState } from 'react'
+import { BadgeCheck, CheckCircle2, CircleAlert, FileCheck2, Send, ShieldCheck } from 'lucide-react'
+
+const verificationItems = [
+  { name: 'Python', score: 82, evidence: 'Technical assessment', verified: true },
+  { name: 'SQL', score: 76, evidence: 'Project evidence', verified: true },
+  { name: 'Statistics', score: 61, evidence: 'Assessment', verified: true },
+  { name: 'Power BI', score: 68, evidence: 'Project evidence', verified: true },
+  { name: 'Machine Learning', score: 42, evidence: 'Evidence not submitted', verified: false },
+]
+
+function VerificationItem({ item, submitted, onSubmit }) {
+  const isVerified = item.verified || submitted
+  return <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-5"><div className="flex min-w-0 items-center gap-3"><span className={`grid size-10 shrink-0 place-items-center rounded-xl ${isVerified ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'}`}>{isVerified ? <BadgeCheck size={20} /> : <CircleAlert size={20} />}</span><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="text-sm font-extrabold text-slate-800">{item.name}</h3><span className="text-sm font-black text-slate-500">{item.score}</span></div><p className="mt-1 text-xs text-slate-500">Evidence: {isVerified && submitted ? 'Proof submitted' : item.evidence}</p></div></div><div className="flex items-center gap-3 sm:shrink-0"><span className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider ${isVerified ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-50 text-amber-700'}`}>{isVerified ? 'Verified' : 'Needs verification'}</span>{!isVerified && <button type="button" onClick={() => onSubmit(item.name)} className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-500 px-3 py-2 text-xs font-bold text-white transition hover:bg-emerald-600"><Send size={13} />Submit Proof</button>}</div></div>
+}
+
+function EmployeeVerificationPage() {
+  const [submittedSkills, setSubmittedSkills] = useState([])
+  const submittedCount = submittedSkills.length
+  const verifiedCount = 4 + submittedCount
+
+  return <div className="mx-auto max-w-[1500px] space-y-6">
+    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"><div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-center"><div><div className="flex flex-wrap items-center gap-2"><p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-600">My Verification</p><span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-700">Rahul Sharma · EMP001</span></div><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-950">My Skill Verification</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">Build trusted evidence for the skills in your competency profile.</p></div><div className="flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50 px-3 py-2 text-xs font-bold text-blue-700"><ShieldCheck size={15} />Personal evidence record</div></div></section>
+    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4"><div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><span className="inline-flex rounded-xl bg-emerald-50 p-2.5 text-emerald-600"><BadgeCheck size={18} /></span><p className="mt-4 text-2xl font-extrabold text-slate-950">{verifiedCount}/5</p><p className="mt-1 text-sm font-bold text-slate-700">Verified Skills</p><p className="mt-1 text-xs text-slate-400">Trusted competencies</p></div><div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><span className="inline-flex rounded-xl bg-blue-50 p-2.5 text-blue-600"><ShieldCheck size={18} /></span><p className="mt-4 text-2xl font-extrabold text-slate-950">{verifiedCount * 20}%</p><p className="mt-1 text-sm font-bold text-slate-700">Verification Progress</p><p className="mt-1 text-xs text-slate-400">Evidence-backed profile</p></div><div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><span className="inline-flex rounded-xl bg-violet-50 p-2.5 text-violet-600"><FileCheck2 size={18} /></span><p className="mt-4 text-2xl font-extrabold text-slate-950">{4 + submittedCount}</p><p className="mt-1 text-sm font-bold text-slate-700">Evidence Submitted</p><p className="mt-1 text-xs text-slate-400">Across your skill profile</p></div><div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><span className="inline-flex rounded-xl bg-amber-50 p-2.5 text-amber-600"><CircleAlert size={18} /></span><p className="mt-4 text-2xl font-extrabold text-slate-950">{1 - submittedCount < 0 ? 0 : 1 - submittedCount}</p><p className="mt-1 text-sm font-bold text-slate-700">Skills Pending</p><p className="mt-1 text-xs text-slate-400">Ready for your proof</p></div></div>
+    <section><div className="mb-4 flex items-end justify-between gap-3"><div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-600">Evidence layer</p><h2 className="mt-1 text-xl font-extrabold text-slate-950">My competency evidence</h2><p className="mt-1 text-xs text-slate-500">Which of your skills are trusted and what still needs proof.</p></div><span className="text-xs font-semibold text-slate-400">{verifiedCount} of 5 trusted</span></div><div className="space-y-3">{verificationItems.map((item) => <VerificationItem key={item.name} item={item} submitted={submittedSkills.includes(item.name)} onSubmit={(name) => setSubmittedSkills((current) => current.includes(name) ? current : [...current, name])} />)}</div></section>
+    <div className="flex items-start gap-3 rounded-2xl border border-emerald-100 bg-emerald-50/60 p-4 text-sm text-emerald-800"><CheckCircle2 size={18} className="mt-0.5 shrink-0 text-emerald-600" /><p><span className="font-bold">Why verification matters:</span> verified evidence increases confidence when you are considered for project opportunities.</p></div>
+  </div>
+}
+
+export default EmployeeVerificationPage

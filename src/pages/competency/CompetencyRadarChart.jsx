@@ -31,7 +31,7 @@ export default function CompetencyRadarChart({ skills }) {
           <p className="text-xs text-slate-500 mt-0.5">Multi-dimensional skill view</p>
         </div>
         <div className="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center">
-          <span className="text-indigo-400 text-xs">â—ˆ</span>
+          <span className="text-indigo-400 text-xs">◈</span>
         </div>
       </div>
 

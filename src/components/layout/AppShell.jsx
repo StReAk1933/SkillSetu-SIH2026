@@ -11,7 +11,7 @@ const navigation = [
   { label: 'Impact', icon: BarChart3 },
 ]
 
-function AppShell({ children, activeTab = 'Verification', onTabChange }) {
+function AppShell({ children, activeTab = 'Verification', onTabChange, workspace = 'admin', onWorkspaceChange }) {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 lg:flex">
       <aside className="hidden w-64 shrink-0 flex-col border-r border-slate-200 bg-white lg:flex">
@@ -53,7 +53,9 @@ function AppShell({ children, activeTab = 'Verification', onTabChange }) {
         </div>
       </aside>
       <div className="min-w-0 flex-1">
-        <Header />
+        <div className="relative z-40">
+          <Header workspace={workspace} onWorkspaceChange={onWorkspaceChange} />
+        </div>
         <main className="p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
     </div>
