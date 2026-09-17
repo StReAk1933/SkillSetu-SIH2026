@@ -1,9 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
+/* ============================================================
+   SkillSetu Design System — Color Grading
+   Primary:    Emerald/Teal  #00B87A / #00C98B
+   Secondary:  Indigo/Blue   #4F46E5 / #6366F1
+   Dark:       Deep Navy     #0F172A / #11152A
+   Background: Cool Gray     #F8FAFC
+   Text:       Dark Navy     #0F172A
+   Accent:     Amber/Gold    #F59E0B
+   Light Acct: Cyan/Blue     #06B6D4
+   ============================================================ */
+
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #0f172a;
-  background: #f8fafc;
+  /* Brand Palette */
+  --color-primary:       #00B87A;
+  --color-primary-light: #00C98B;
+  --color-primary-dark:  #009963;
+  --color-primary-bg:    #E6FBF3;
+  --color-primary-muted: rgba(0, 184, 122, 0.12);
+
+  --color-secondary:       #4F46E5;
+  --color-secondary-light: #6366F1;
+  --color-secondary-bg:    #EEF2FF;
+  --color-secondary-muted: rgba(79, 70, 229, 0.12);
+
+  --color-dark:        #0F172A;
+  --color-dark-deeper: #11152A;
+  --color-dark-muted:  #1E2A45;
+
+  --color-accent-amber:    #F59E0B;
+  --color-accent-amber-bg: #FFFBEB;
+  --color-accent-cyan:     #06B6D4;
+  --color-accent-cyan-bg:  #ECFEFF;
+
+  --color-bg:        #F8FAFC;
+  --color-bg-card:   #FFFFFF;
+  --color-bg-subtle: #F1F5F9;
+
+  --color-text:        #0F172A;
+  --color-text-muted:  #64748B;
+  --color-text-subtle: #94A3B8;
+
+  --color-border:       #E2E8F0;
+  --color-border-light: #F1F5F9;
+
+  /* Typography */
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,8 +59,30 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-bg);
 }
 
 #root {
   min-height: 100vh;
+}
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--color-border-light); }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+/* ── Focus ring ────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ── Range input accent ────────────────────────────── */
+input[type="range"] { accent-color: var(--color-primary); }
+
+/* ── Selection highlight ───────────────────────────── */
+::selection {
+  background: var(--color-primary-muted);
+  color: var(--color-primary-dark);
 }

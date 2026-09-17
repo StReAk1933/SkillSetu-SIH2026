@@ -3,12 +3,74 @@ import { Award, CheckCircle2, Users, Zap } from 'lucide-react'
 function MatchSummary({ matches, project }) {
   const topMatch = matches[0]
   const verifiedCount = topMatch?.verifiedSkills.length ?? 0
+
+  const cards = [
+    {
+      icon: Zap,
+      iconBg: 'var(--color-primary-bg)',
+      iconColor: 'var(--color-primary)',
+      badge: 'Live calculation',
+      badgeColor: 'var(--color-primary)',
+      value: matches.length,
+      label: 'Employees evaluated',
+    },
+    {
+      icon: Award,
+      iconBg: 'var(--color-secondary-bg)',
+      iconColor: 'var(--color-secondary)',
+      badge: 'Top result',
+      badgeColor: 'var(--color-text-subtle)',
+      value: `${topMatch?.finalScore ?? 0}%`,
+      label: `${topMatch?.employee.name ?? 'No match'} for ${project.name}`,
+      truncate: true,
+    },
+    {
+      icon: CheckCircle2,
+      iconBg: 'rgba(6,182,212,0.1)',
+      iconColor: 'var(--color-accent-cyan)',
+      badge: 'Verified skills',
+      badgeColor: 'var(--color-text-subtle)',
+      value: `${verifiedCount}/${project.requiredSkills.length}`,
+      label: 'Required skills verified',
+    },
+    {
+      icon: Users,
+      iconBg: 'var(--color-accent-amber-bg)',
+      iconColor: 'var(--color-accent-amber)',
+      badge: 'Capacity signal',
+      badgeColor: 'var(--color-text-subtle)',
+      value: matches.filter((match) => match.employee.availability === 'available').length,
+      label: 'Ready for allocation',
+    },
+  ]
+
   return (
     <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between"><span className="rounded-lg bg-emerald-50 p-2 text-emerald-600"><Zap size={17} /></span><span className="text-xs font-semibold text-emerald-600">Live calculation</span></div><p className="mt-4 text-2xl font-bold text-slate-950">{matches.length}</p><p className="text-xs font-medium text-slate-500">Employees evaluated</p></div>
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between"><span className="rounded-lg bg-blue-50 p-2 text-blue-600"><Award size={17} /></span><span className="text-xs font-semibold text-slate-400">Top result</span></div><p className="mt-4 text-2xl font-bold text-slate-950">{topMatch?.finalScore ?? 0}%</p><p className="truncate text-xs font-medium text-slate-500">{topMatch?.employee.name ?? 'No match'} for {project.name}</p></div>
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between"><span className="rounded-lg bg-violet-50 p-2 text-violet-600"><CheckCircle2 size={17} /></span><span className="text-xs font-semibold text-slate-400">Top result</span></div><p className="mt-4 text-2xl font-bold text-slate-950">{verifiedCount}/{project.requiredSkills.length}</p><p className="text-xs font-medium text-slate-500">Required skills verified</p></div>
-      <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between"><span className="rounded-lg bg-amber-50 p-2 text-amber-600"><Users size={17} /></span><span className="text-xs font-semibold text-slate-400">Capacity signal</span></div><p className="mt-4 text-2xl font-bold text-slate-950">{matches.filter((match) => match.employee.availability === 'available').length}</p><p className="text-xs font-medium text-slate-500">Ready for allocation</p></div>
+      {cards.map(({ icon: Icon, iconBg, iconColor, badge, badgeColor, value, label, truncate }) => (
+        <div
+          key={label}
+          className="rounded-2xl p-4 shadow-sm"
+          style={{ border: '1px solid var(--color-border)', background: 'var(--color-bg-card)' }}
+        >
+          <div className="flex items-center justify-between">
+            <span className="rounded-lg p-2" style={{ background: iconBg, color: iconColor }}>
+              <Icon size={17} />
+            </span>
+            <span className="text-xs font-semibold" style={{ color: badgeColor }}>
+              {badge}
+            </span>
+          </div>
+          <p className="mt-4 text-2xl font-bold" style={{ color: 'var(--color-dark)' }}>
+            {value}
+          </p>
+          <p
+            className={`text-xs font-medium ${truncate ? 'truncate' : ''}`}
+            style={{ color: 'var(--color-text-muted)' }}
+          >
+            {label}
+          </p>
+        </div>
+      ))}
     </div>
   )
 }
